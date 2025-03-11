@@ -5,20 +5,69 @@
         <title>Rock, Paper, Scissors!</title>
     </head>
     <script>
-        /// Score variable
-
+        /// Score variables
+        let humanScore = 0;
+        let computerScore = 0;
         /// Round counter variable
+        let round = 0;
 
         /// Get User Choice with prompt
-
+        function getHumanChoice() {
+            let input = prompt("rock, paper, or scissors?");
+            return humanChoice = input.toLowerCase(); /// convert string to all lowercase;
+        }
+        
         /// Get Computer Choice with Math.random
+        function getComputerChoice() {
+            let computerMath = Math.floor(Math.random()*10)
+            var computerChoice;
+            if (computerMath < 3) {
+                return "rock";
+            }
+            else if (computerMath >= 3 && computerMath <6) {
+                return "paper";
+            } else{
+                return "scissors";
+            }
+        };
+
+        let computer = getComputerChoice();
+        let human = getHumanChoice();
+        console.log(`${human} vs ${computer}`)
+
+        function playRound(humanChoice, computerChoice) {
+            if (humanChoice == "rock" && computerChoice == "scissors"){
+                humanScore +=1;
+                console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+            } else if (humanChoice == "paper" && computerChoice == "rock"){
+                humanScore += 1;
+                console.log (`You win! ${humanChoice} beats ${computerChoice}`);
+            } else if (humanChoice == "scissors" && computerChoice == "paper") {
+                humanScore += 1;
+                console.log (`You win! ${humanChoice} beats ${computerChoice}`);
+            } 
+            else if (human == computer) {
+                console.log("It's a tie! Try again!")
+            } else {
+                computerScore += 1;
+                console.log(`${computerChoice} beats ${humanChoice}, better luck next time!`)
+            }
+        }
+        
+        let perRound = playRound(human, computer);
+
+        console.log("Scores:");
+        console.log(`Player:  ${humanScore}`);
+        console.log(`Computer:  ${computerScore}`);
 
         /// Decide Winner using both choices as parameters for function
             /// rock beats scissors, scissors beats paper, paper beats rock
 
+
         /// Display round winner, current score, and current round number
 
         /// Play game function with all function calls, loops game with counter that stops after 5 rounds, display scores and declare a winner of the game 
+
     </script>
 
 </html>
