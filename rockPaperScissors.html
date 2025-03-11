@@ -20,7 +20,11 @@
         /// Get Computer Choice with Math.random
         function getComputerChoice() {
             let computerMath = Math.floor(Math.random()*10)
-            var computerChoice;
+
+            /// show Math.random's output to ensure it calculates appropriately for the range
+            console.log(computerMath);
+
+            /// asign variable "computer" the return value
             if (computerMath < 3) {
                 return "rock";
             }
@@ -33,8 +37,11 @@
 
         let computer = getComputerChoice();
         let human = getHumanChoice();
+
+        /// Show both player's choices
         console.log(`${human} vs ${computer}`)
 
+        /// Decide and Announce winner of the round
         function playRound(humanChoice, computerChoice) {
             if (humanChoice == "rock" && computerChoice == "scissors"){
                 humanScore +=1;
@@ -55,16 +62,12 @@
         }
         
         let perRound = playRound(human, computer);
-
+        
+        /// Display scores 
         console.log("Scores:");
         console.log(`Player:  ${humanScore}`);
         console.log(`Computer:  ${computerScore}`);
 
-        /// Decide Winner using both choices as parameters for function
-            /// rock beats scissors, scissors beats paper, paper beats rock
-
-
-        /// Display round winner, current score, and current round number
 
         /// Play game function with all function calls, loops game with counter that stops after 5 rounds, display scores and declare a winner of the game 
 
