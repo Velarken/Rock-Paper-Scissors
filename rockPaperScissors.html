@@ -11,7 +11,7 @@
         /// Round counter variable
         let round = 0;
 
-        /// Get User Choice with prompt
+        /// Get User Choice with prompt()
         function getHumanChoice() {
             let input = prompt("rock, paper, or scissors?");
             return humanChoice = input.toLowerCase(); /// convert string to all lowercase;
@@ -59,17 +59,49 @@
                 computerScore += 1;
                 console.log(`${computerChoice} beats ${humanChoice}, better luck next time!`)
             }
+
+            /// Display scores 
+            console.log("Scores:");
+            console.log(`Player:  ${humanScore}`);
+            console.log(`Computer:  ${computerScore}`);
         }
         
         let perRound = playRound(human, computer);
-        
-        /// Display scores 
-        console.log("Scores:");
-        console.log(`Player:  ${humanScore}`);
-        console.log(`Computer:  ${computerScore}`);
 
 
-        /// Play game function with all function calls, loops game with counter that stops after 5 rounds, display scores and declare a winner of the game 
+
+        /*
+        **************************************************
+        START AT STEP 6 OF THE PROJECT ON THE ODIN PROJECT
+        **************************************************
+        */
+        function playGame() {
+            let roundCounter = 1;
+
+            if (roundCounter != 5) {
+
+            } else {
+                if (humanScore > computerScore) {
+                    console.log(`Congrats! You win!`);
+                    console.log(`Final Score:`);
+                    console.log(`Player:  ${humanScore}`)
+                    console.log(`Computer:  ${computerScore}`);
+                } else {
+                    console.log("Well, you can't win em all!");
+                    console.log("Final Score:");
+                    console.log(`Player:  ${humanScore}`)
+                    console.log(`Computer:  ${computerScore}`);
+                }
+            }
+        }
+
+        /// function playGame() {
+            /*
+            If roundCounter do NOT equal 5, run function for round of rock paper scissors
+                Move playRound function and score variables here, create roundCounter variable to track number of rounds played
+            Else, announce final score and game winner.
+            
+        }   */
 
     </script>
 
