@@ -5,12 +5,6 @@
         <title>Rock, Paper, Scissors!</title>
     </head>
     <script>
-        /// Score variables
-        let humanScore = 0;
-        let computerScore = 0;
-        /// Round counter variable
-        let round = 0;
-
         /// Get User Choice with prompt()
         function getHumanChoice() {
             let input = prompt("rock, paper, or scissors?");
@@ -19,90 +13,87 @@
         
         /// Get Computer Choice with Math.random
         function getComputerChoice() {
-            let computerMath = Math.floor(Math.random()*10)
+            let computerMath = (Math.floor(Math.random()*10)+1);
 
-            /// show Math.random's output to ensure it calculates appropriately for the range
+            /// Show Math.random's output to ensure it calculates appropriately for the range
             console.log(computerMath);
 
-            /// asign variable "computer" the return value
+            /// Return string for the corresponding computerMath value
             if (computerMath < 3) {
                 return "rock";
             }
-            else if (computerMath >= 3 && computerMath <6) {
+            else if (computerMath >= 3 && computerMath < 6) {
                 return "paper";
             } else{
                 return "scissors";
             }
         };
 
-        let computer = getComputerChoice();
-        let human = getHumanChoice();
-
-        /// Show both player's choices
-        console.log(`${human} vs ${computer}`)
-
-        /// Decide and Announce winner of the round
-        function playRound(humanChoice, computerChoice) {
-            if (humanChoice == "rock" && computerChoice == "scissors"){
-                humanScore +=1;
-                console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-            } else if (humanChoice == "paper" && computerChoice == "rock"){
-                humanScore += 1;
-                console.log (`You win! ${humanChoice} beats ${computerChoice}`);
-            } else if (humanChoice == "scissors" && computerChoice == "paper") {
-                humanScore += 1;
-                console.log (`You win! ${humanChoice} beats ${computerChoice}`);
-            } 
-            else if (human == computer) {
-                console.log("It's a tie! Try again!")
-            } else {
-                computerScore += 1;
-                console.log(`${computerChoice} beats ${humanChoice}, better luck next time!`)
-            }
-
-            /// Display scores 
-            console.log("Scores:");
-            console.log(`Player:  ${humanScore}`);
-            console.log(`Computer:  ${computerScore}`);
-        }
-        
-        let perRound = playRound(human, computer);
-
-
-
-        /*
-        **************************************************
-        START AT STEP 6 OF THE PROJECT ON THE ODIN PROJECT
-        **************************************************
-        */
         function playGame() {
-            let roundCounter = 1;
+            /// Score variables
+            let humanScore = 0;
+            let computerScore = 0;
+            let roundCounter = 0;
 
-            if (roundCounter != 5) {
-
-            } else {
-                if (humanScore > computerScore) {
-                    console.log(`Congrats! You win!`);
-                    console.log(`Final Score:`);
-                    console.log(`Player:  ${humanScore}`)
-                    console.log(`Computer:  ${computerScore}`);
-                } else {
-                    console.log("Well, you can't win em all!");
-                    console.log("Final Score:");
-                    console.log(`Player:  ${humanScore}`)
-                    console.log(`Computer:  ${computerScore}`);
-                }
+            function displayScores() {
+                /// Display scores 
+                console.log("Scores:");
+                console.log(`Player:  ${humanScore}`);
+                console.log(`Computer:  ${computerScore}`);
             }
-        }
-
-        /// function playGame() {
-            /*
-            If roundCounter do NOT equal 5, run function for round of rock paper scissors
-                Move playRound function and score variables here, create roundCounter variable to track number of rounds played
-            Else, announce final score and game winner.
             
-        }   */
+            while (roundCounter < 5) {
 
+                function playRound(humanChoice, computerChoice) {
+                    /// Show both player's choices
+                    console.log(`You chose ${human}, the computer chose ${computer}.`);
+                    roundCounter+=1;
+                    /// Decide if human or computer wins the round and adjust points accordingly
+                    if (humanChoice == "rock" && computerChoice == "scissors") {
+                        humanScore +=1;
+                        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+                        displayScores();
+                    } else if (humanChoice == "paper" && computerChoice == "rock") {
+                        humanScore += 1;
+                        console.log (`You win! ${humanChoice} beats ${computerChoice}`);
+                        displayScores();
+                    } else if (humanChoice == "scissors" && computerChoice == "paper") {
+                        humanScore += 1;
+                        console.log (`You win! ${humanChoice} beats ${computerChoice}`);
+                        displayScores();
+                    } else if (human == computer) {
+                        console.log("It's a tie! Try again!");
+                        displayScores();
+                    } else {
+                        computerScore += 1;
+                        console.log(`${computerChoice} beats ${humanChoice}, better luck next time!`);
+                        displayScores();
+                    }
+                }
+                const computer = getComputerChoice();
+                const human = getHumanChoice();
+                playRound(human,computer);
+            }
+            
+            /// If game is over, announce winner
+            ///if (roundCounter === 5) {
+            if (humanScore > computerScore) {
+                console.log(`Congrats! You win!`);
+                console.log(`Final Score:`);
+                console.log(`Player:  ${humanScore}`)
+                console.log(`Computer:  ${computerScore}`);
+            } else {
+                console.log("Well, you can't win em all!");
+                console.log("Final Score:");
+                console.log(`Player:  ${humanScore}`)
+                console.log(`Computer:  ${computerScore}`);
+            }
+            ///} else {
+                ///let perRound = playRound(human, computer);
+            }
+    
+        let startGame=playGame();
+     
     </script>
 
 </html>
