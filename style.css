@@ -1,0 +1,58 @@
+* {
+    font-family:sans-serif;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+body {
+    background-color: purple;
+}
+
+button {
+    background-color:white;
+    padding:20px;
+    margin:20px 20px 35px 20px;
+    border:2px, solid, lavenderblush;
+    text-align: center;
+    border-radius:8px;
+    min-width:50px;
+    min-height:50px;
+    font-weight:650;
+}
+
+button:hover {
+    background-color: purple;
+    color:white;
+}
+
+#buttons {
+    display:block;
+    text-align: center;
+    
+}
+
+#score {
+    text-align:center;
+    background-color:white;
+    border:2px, solid, black;
+    border-radius: 8px;
+    min-width: 250px;
+    margin:5px 50px 50px 50px;
+}
+
+#outcome {
+    text-align:center;
+    background-color:white;
+    border:2px, solid, black;
+    border-radius: 8px;
+    min-width: 250px;
+    margin:5px 50px 5px 50px;
+}
+
+#roundWinner {
+    text-align:center;
+    font-weight:700;
+}

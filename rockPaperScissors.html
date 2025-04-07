@@ -3,97 +3,28 @@
     <head>
         <meta charset="UTF-8">
         <title>Rock, Paper, Scissors!</title>
+        <link rel="stylesheet" href="style.css">
     </head>
-    <script>
-        /// Get User Choice with prompt()
-        function getHumanChoice() {
-            let input = prompt("rock, paper, or scissors?");
-            return humanChoice = input.toLowerCase(); /// convert string to all lowercase;
-        }
-        
-        /// Get Computer Choice with Math.random
-        function getComputerChoice() {
-            let computerMath = (Math.floor(Math.random()*10)+1);
+    <body>
+        <div class="header">
+            <h1> Let's Play:  Rock, Paper, Scissors!</h1>
+        </div>
+        <div id="buttons">
+            <button id="rock">Rock</button>
+            <button id="paper">Paper</button>
+            <button id="scissors">Scissors</button>
+        </div>
+        <div id="outcome">
+            <p id="player">You chose:  </p>
+            <p id="npc">Computer chose:  </p>
+            <p id="roundWinner"> </p>
+        </div>
+        <div id="score">
+            <h3 class="title">Current Score is:</h3>
+            <p id="playerScore">Player:  </p>
+            <p id="npcScore">Computer:  </p>
+        </div>
 
-            /// Show Math.random's output to ensure it calculates appropriately for the range
-            console.log(computerMath);
-
-            /// Return string for the corresponding computerMath value
-            if (computerMath < 3) {
-                return "rock";
-            }
-            else if (computerMath >= 3 && computerMath < 6) {
-                return "paper";
-            } else{
-                return "scissors";
-            }
-        };
-
-        function playGame() {
-            /// Score variables
-            let humanScore = 0;
-            let computerScore = 0;
-            let roundCounter = 0;
-
-            function displayScores() {
-                /// Display scores 
-                console.log("Scores:");
-                console.log(`Player:  ${humanScore}`);
-                console.log(`Computer:  ${computerScore}`);
-            }
-            
-            while (roundCounter < 5) {
-
-                function playRound(humanChoice, computerChoice) {
-                    /// Show both player's choices
-                    console.log(`You chose ${human}, the computer chose ${computer}.`);
-                    roundCounter+=1;
-                    /// Decide if human or computer wins the round and adjust points accordingly
-                    if (humanChoice == "rock" && computerChoice == "scissors") {
-                        humanScore +=1;
-                        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-                        displayScores();
-                    } else if (humanChoice == "paper" && computerChoice == "rock") {
-                        humanScore += 1;
-                        console.log (`You win! ${humanChoice} beats ${computerChoice}`);
-                        displayScores();
-                    } else if (humanChoice == "scissors" && computerChoice == "paper") {
-                        humanScore += 1;
-                        console.log (`You win! ${humanChoice} beats ${computerChoice}`);
-                        displayScores();
-                    } else if (human == computer) {
-                        console.log("It's a tie! Try again!");
-                        displayScores();
-                    } else {
-                        computerScore += 1;
-                        console.log(`${computerChoice} beats ${humanChoice}, better luck next time!`);
-                        displayScores();
-                    }
-                }
-                const computer = getComputerChoice();
-                const human = getHumanChoice();
-                playRound(human,computer);
-            }
-            
-            /// If game is over, announce winner
-            ///if (roundCounter === 5) {
-            if (humanScore > computerScore) {
-                console.log(`Congrats! You win!`);
-                console.log(`Final Score:`);
-                console.log(`Player:  ${humanScore}`)
-                console.log(`Computer:  ${computerScore}`);
-            } else {
-                console.log("Well, you can't win em all!");
-                console.log("Final Score:");
-                console.log(`Player:  ${humanScore}`)
-                console.log(`Computer:  ${computerScore}`);
-            }
-            ///} else {
-                ///let perRound = playRound(human, computer);
-            }
-    
-        let startGame=playGame();
-     
-    </script>
-
+        <script src="rps.js"></script>
+    </body>
 </html>
