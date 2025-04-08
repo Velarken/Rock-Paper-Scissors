@@ -2,6 +2,7 @@
 /// Score variables
 let playerScore = 0;
 let computerScore = 0;
+let ties = 0;
                 
 // Event listeners
 document.getElementById('rock').addEventListener('click',() => playGame('rock'));
@@ -26,13 +27,16 @@ function playGame(playerChoice) {
     document.getElementById('roundWinner').textContent = result;
 
     // Update scores
-    document.getElementById('playerScore').textContent = playerScore;
-    document.getElementById('npcScore').textContent = computerScore;
+    document.getElementById('playerScore').textContent = `You:  ${playerScore}`;
+    document.getElementById('npcScore').textContent = `Computer:  ${computerScore}`;
+    document.getElementById('ties').textContent = `Ties:  ${ties}`;
 }
 
 function decideWinner(playerChoice,computerChoice) {
-    if (playerChoice === computerChoice) return "It's a tie!";
-
+    if (playerChoice === computerChoice) {
+        ties++;
+        return "It's a tie!";
+    }
     const winCondition = {
         rock: "scissors",
         paper: "rock",
