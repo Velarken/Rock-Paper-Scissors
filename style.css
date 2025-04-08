@@ -23,6 +23,10 @@ button {
     font-weight:650;
 }
 
+#playAgain {
+    text-align: center;
+}
+
 button:hover {
     background-color: purple;
     color:white;

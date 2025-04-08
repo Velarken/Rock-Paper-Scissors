@@ -51,3 +51,9 @@ function decideWinner(playerChoice,computerChoice) {
         return "You were beaten this time!";
     }
 } 
+
+function playAgain() {
+    document.getElementById('playerScore').textContent = `You:  0`;
+    document.getElementById('npcScore').textContent = `Computer:  0`;
+    document.getElementById('ties').textContent = `Ties:  0`;
+}
